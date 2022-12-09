@@ -1,12 +1,12 @@
-import { Result } from "../../types/data";
+import { Result,episodeData } from "../../types/data";
 
 export function Card(props: Result) {
   const IsAclive =
     props.status === "Alive" ? "bg-green-500" : "bg-red-500";
-
+// console.log(props.episode)
   return (
-    <div className="w-1/3 h-56 border-2 rounded-xl flex mb-4 ">
-      <div className="w-full ">
+    <div className="w-96 h-56 border-2 rounded-xl flex mb-4 ">
+      <div className="w-48 ">
         <img  className="object-cover w-full h-full rounded-xl" src={props.image} alt="charcterName" />
       </div>
       <div className="flex flex-col justify-around ml-4">
@@ -16,8 +16,8 @@ export function Card(props: Result) {
           <div className="ml-2">{props.status}</div>
         </div>
         <div>
-          <div>Last known location: <span className="font-bold">{props.location?.name}</span></div>
-          <div>First seen in: <span className="font-bold">{props.origin.name}</span></div>
+          <div className="text-sm">Last known location: <br></br> <span className="font-bold">{props.location?.name}</span> </div>
+          <div className="text-sm">First seen in: <span className="font-bold">{}</span></div>
         </div>
       </div>
     </div>
