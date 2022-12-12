@@ -1,4 +1,4 @@
-import { Card } from "../../components/card";
+import { Card } from "../../components/cards/CharacterCard";
 
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
@@ -6,24 +6,19 @@ import { useState, useEffect } from "react";
 import { fetchCharacterData } from "../../redux/getCharactersData";
 
 import { RootState } from "../../redux/store";
-import { Result, episodeDataRoot, episodeData } from "../../types/data";
+import { Result,} from "../../types/data";
+import {seletedType} from "../../types/data"
 
 import ReactPaginate from "react-paginate";
 
-import axios from "axios";
 
 export function Characters() {
   const dispatch = useAppDispatch();
-  const [fecthedEpisodes, setEpisode] = useState<any>([]);
 
   const [page, setPage] = useState<number>(1);
 
-  const { results } = useSelector((state: RootState) => state.data);
-  const { info } = useSelector((state: RootState) => state.data);
+  const { results, info } = useSelector((state: RootState) => state.characters);
 
-  type seletedType = {
-    selected: number;
-  };
 
   useEffect(() => {
     dispatch(fetchCharacterData({ page: page }));
@@ -35,7 +30,7 @@ export function Characters() {
       <div className="container">
         <div className="flex min-h-screen border-2 mt-4 rounded-lg p-2 flex-wrap  justify-around">
           {results.map((character: Result) => (
-            <Card key={character.id} {...character} episode={fecthedEpisodes} />
+            <Card key={character.id} {...character}/>
           ))}
         </div>
         <div className="flex pagination">

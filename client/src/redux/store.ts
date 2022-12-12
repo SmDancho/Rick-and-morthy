@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import dataSlice from "./getCharactersData";
+import LocationSlice from "./getLocationData"
 import { getDefaultMiddleware } from "@reduxjs/toolkit";
 
 const customizedMiddleware = () =>
@@ -10,7 +11,8 @@ const customizedMiddleware = () =>
 
 export const store = configureStore({
   reducer: {
-    data: dataSlice,
+    characters: dataSlice,
+    locations: LocationSlice
   },
 
   middleware: (getDefaultMiddleware) => customizedMiddleware(),

@@ -1,9 +1,8 @@
-import { Result,episodeData } from "../../types/data";
+import { Result } from "../../../types/data";
 
 export function Card(props: Result) {
   const IsAclive =
     props.status === "Alive" ? "bg-green-500" : "bg-red-500";
-// console.log(props.episode)
   return (
     <div className="w-96 h-56 border-2 rounded-xl flex mb-4 ">
       <div className="w-48 ">

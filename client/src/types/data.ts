@@ -40,6 +40,7 @@ export interface params {
     results: Result[];
     info: Info;
   };
+  
 }
 export interface episodeData {
   air_date: string;
@@ -57,3 +58,7 @@ export interface episodeDataRoot {
   statusText:() => string;
  
 }
+
+export type seletedType = {
+  selected: number;
+};

@@ -1,13 +1,17 @@
+import { Header } from "./components/header";
+import { Characters } from "./pages/Characters";
+import { Locations } from "./pages/locations";
 
-import {Header} from "./components/header"
-import {Characters} from "./pages/Characters"
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
     <div className="App">
-      <Header/>
-      <Characters/>
+      <Header />
+      <Routes>
+        <Route path={"/Characters"} element={<Characters />} />
+        <Route path={"/Locations"} element={<Locations />} />
+      </Routes>
     </div>
   );
 }
