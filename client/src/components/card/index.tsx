@@ -17,7 +17,7 @@ export function Card(props: Result) {
         </div>
         <div>
           <div className="text-sm">Last known location: <br></br> <span className="font-bold">{props.location?.name}</span> </div>
-          <div className="text-sm">First seen in: <span className="font-bold">{}</span></div>
+          {/* <div className="text-sm">First seen in: <span className="font-bold">{}</span></div> */}
         </div>
       </div>
     </div>

@@ -52,8 +52,8 @@ export interface episodeData {
 }
 
 export interface episodeDataRoot {
-  config?: Array<any>;
-  data: episodeData;
-  status: number;
-  statusText: string;
+  data: () => episodeData;
+  status: () => number;
+  statusText:() => string;
+ 
 }
