@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { Result, RootObject, Info, params } from "../../types/data";
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import axios from 'axios';
+import {Result, RootObject, Info, params} from '../../types/data';
 
 
 export interface dataState {
@@ -22,26 +22,26 @@ const initialState: dataState = {
 };
 
 export const fetchCharacterData: any = createAsyncThunk(
-  "dataSlice/fetchCharacterData",
+    'dataSlice/fetchCharacterData',
 
-  async ({ page, data }: params) => {
-    data = axios.get("https://rickandmortyapi.com/api/character", {
-      params: {
-        page,
-      },
-    });
+    async ({page, data}: params) => {
+      data = axios.get('https://rickandmortyapi.com/api/character', {
+        params: {
+          page,
+        },
+      });
 
-    return data;
-  }
+      return data;
+    },
 );
 
 export const dataSlice = createSlice({
-  name: "data",
+  name: 'data',
   initialState,
   reducers: {
   },
   extraReducers: (builder) => {
-    //all characters
+    // all characters
     builder.addCase(fetchCharacterData.pending, (state, action) => {
       state.isLoading = true;
     });
@@ -51,7 +51,6 @@ export const dataSlice = createSlice({
       state.info = action.payload.data.info;
       state.episode = action.payload.data.results.map((episode:Result) => episode.episode);
     });
-
   },
 });
 

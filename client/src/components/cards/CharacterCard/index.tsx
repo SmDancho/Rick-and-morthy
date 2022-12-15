@@ -1,12 +1,18 @@
-import { Result } from "../../../types/data";
+
+import {Result} from '../../../types/data';
+import React from 'react';
 
 export function Card(props: Result) {
-  const IsAclive =
-    props.status === "Alive" ? "bg-green-500" : "bg-red-500";
+  const IsAclive = props.status === 'Alive' ? 'bg-green-500' : 'bg-red-500';
   return (
     <div className="w-96 h-56 border-2 rounded-xl flex mb-4 ">
       <div className="w-48 ">
-        <img  className="object-cover w-full h-full rounded-xl" src={props.image} alt="charcterName" />
+        <img
+          className="object-cover w-full h-full rounded-xl"
+          src={props.image}
+          alt="charcterName"
+        />
+
       </div>
       <div className="flex flex-col justify-around ml-4">
         <div className="font-bold text-2xl">{props.name}</div>
@@ -15,8 +21,13 @@ export function Card(props: Result) {
           <div className="ml-2">{props.status}</div>
         </div>
         <div>
-          <div className="text-sm">Last known location: <br></br> <span className="font-bold">{props.location?.name}</span> </div>
-          {/* <div className="text-sm">First seen in: <span className="font-bold">{}</span></div> */}
+          <div className="text-sm">
+            Last known location: <br></br>{' '}
+            <span className="font-bold">{props.location?.name}</span>{' '}
+          </div>
+          {/* <div className="text-sm">First seen in: <span
+          className="font-bold">
+          {}</span></div> */}
         </div>
       </div>
     </div>

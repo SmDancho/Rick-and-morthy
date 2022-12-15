@@ -28,6 +28,8 @@ export interface Result {
   episode: string[];
   url: string;
   created: Date;
+  dimension:string;
+  air_date:String
 }
 
 export interface RootObject {
@@ -40,7 +42,6 @@ export interface params {
     results: Result[];
     info: Info;
   };
-  
 }
 export interface episodeData {
   air_date: string;
@@ -56,7 +57,6 @@ export interface episodeDataRoot {
   data: () => episodeData;
   status: () => number;
   statusText:() => string;
- 
 }
 
 export type seletedType = {

@@ -1,6 +1,7 @@
-import { Result } from "../../../types/data";
+import {Result} from '../../../types/data';
+import React from 'react';
 
-export function LocationCard(props:Result) {
+export function LocationCard(props: Result) {
   return (
     <>
       <div className="w-96 h-56 border-2 rounded-xl flex mb-4 ">
@@ -12,14 +13,13 @@ export function LocationCard(props:Result) {
           </div>
           <div>
             <div className="text-sm">
-              Type:  {props.type}
-              <span className="font-bold">{props.location?.name}</span>{" "}
+              Type: {props.type}
+              <span className="font-bold">{props.location?.name}</span>
             </div>
-            {/* <div className="text-sm">First seen in: <span className="font-bold">{}</span></div> */}
+            <div className="text-sm">dimension: <span className="font-bold">{props.dimension}</span></div>
           </div>
         </div>
       </div>
     </>
   );
 }
-

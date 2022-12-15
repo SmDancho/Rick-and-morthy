@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { Result, RootObject, Info, params } from "../../types/data";
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import axios from 'axios';
+import {Result, RootObject, Info, params} from '../../types/data';
 
 
 export interface dataState {
@@ -21,37 +21,36 @@ const initialState: dataState = {
   episode: [],
 };
 
-export const fetchCharacterData: any = createAsyncThunk(
-  "dataSlice/fetchCharacterData",
+export const fetchEpisodesData:any = createAsyncThunk(
+    'dataSlice/fetchCharacterData',
 
-  async ({ page, data }: params) => {
-    data = axios.get("https://rickandmortyapi.com/api/character", {
-      params: {
-        page,
-      },
-    });
+    async ({page, data}: params) => {
+      data = axios.get('https://rickandmortyapi.com/api/episode', {
+        params: {
+          page,
+        },
+      });
 
-    return data;
-  }
+      return data;
+    },
 );
 
-export const dataSlice = createSlice({
-  name: "data",
+export const fetchEpisodesDataSlice = createSlice({
+  name: 'data',
   initialState,
   reducers: {
   },
   extraReducers: (builder) => {
-    //all characters
-    builder.addCase(fetchCharacterData.pending, (state, action) => {
+    // all characters
+    builder.addCase(fetchEpisodesData.pending, (state, action) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchCharacterData.fulfilled, (state, action) => {
+    builder.addCase(fetchEpisodesData.fulfilled, (state, action) => {
       state.data = action.payload.data;
       state.results = action.payload.data.results;
       state.info = action.payload.data.info;
       state.episode = action.payload.data.results.map((episode:Result) => episode.episode);
     });
-
   },
 });
 
@@ -59,4 +58,4 @@ export const dataSlice = createSlice({
 
 // export const { page } = dataSlice.actions;
 
-export default dataSlice.reducer;
+export default fetchEpisodesDataSlice.reducer;
